@@ -6,6 +6,15 @@ class MyTextField extends StatefulWidget {
  }
 
 class _MyTextFieldState extends State<MyTextField> {
+  String textTying = "";
+
+  //catch value input
+  void onSubmitted(String value){
+    setState(() {
+      textTying = textTying + "\n" + value;
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
    return Scaffold(
@@ -16,10 +25,9 @@ class _MyTextFieldState extends State<MyTextField> {
        child: Column(children: <Widget>[
          TextField(
            decoration: InputDecoration(hintText: "que estas pensando" ),
-           onSubmitted: (String value){
-             print("el valir es ::  $value ");
-           },
-         )
+           onSubmitted: this.onSubmitted,
+         ),
+         Text(this.textTying)
        ],),
      ),
    );
