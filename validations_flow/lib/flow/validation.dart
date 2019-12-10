@@ -1,16 +1,35 @@
 import 'package:flutter/material.dart';
 
+enum DialogAction { NOT_ACTION, YES_ACTION  }
+
 class ValidationHck extends StatefulWidget {
   @override
   _ValidationHckState createState() => new _ValidationHckState();
  }
 
 class _ValidationHckState extends State<ValidationHck> {
+  /**
+   * Handlers statements
+   */
+  void alertResult( DialogAction action ){
+
+  }
 
   void showMessage(){
     AlertDialog alertDialog = AlertDialog(
-      content:  Text("alert demo")
+      content:  Text("alert demo"),
+      actions: <Widget>[
+        FlatButton(
+          child:  Text("si"),
+          onPressed: (){},
+        ),
+        FlatButton(
+          child: Text("no"),
+          onPressed: (){},
+        )
+      ],
     );
+    
     showDialog( context: context, builder: (BuildContext context) {
      return alertDialog; 
     });
