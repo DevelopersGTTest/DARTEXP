@@ -12,7 +12,7 @@ class _ValidationHckState extends State<ValidationHck> {
    * Handlers statements
    */
   void alertResult( DialogAction action ){
-
+    print("has seleccionado :: $action")
   }
 
   void showMessage(){
@@ -21,11 +21,19 @@ class _ValidationHckState extends State<ValidationHck> {
       actions: <Widget>[
         FlatButton(
           child:  Text("si"),
-          onPressed: (){},
+          onPressed: (){
+            this.alertResult(
+              DialogAction.YES_ACTION
+            );
+          },
         ),
         FlatButton(
           child: Text("no"),
-          onPressed: (){},
+          onPressed: (){
+            this.alertResult(
+              DialogAction.NOT_ACTION
+            );
+          },
         )
       ],
     );
