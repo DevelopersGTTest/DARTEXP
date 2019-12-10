@@ -8,16 +8,26 @@ class ValidationHck extends StatefulWidget {
  }
 
 class _ValidationHckState extends State<ValidationHck> {
+  String valueTextFiel = "";
+
   /**
    * Handlers statements
    */
+
   void alertResult( DialogAction action ){
-    print("has seleccionado :: $action")
+    print("has seleccionado :: $action");
   }
 
-  void showMessage(){
+  //state
+  void onChanged(String value){
+    setState(() {
+      this.valueTextFiel = value;
+    });
+  }
+
+  void showMessage(String valueTextFiel ){
     AlertDialog alertDialog = AlertDialog(
-      content:  Text("alert demo"),
+      content:  Text( valueTextFiel ),
       actions: <Widget>[
         FlatButton(
           child:  Text("si"),
@@ -55,10 +65,13 @@ class _ValidationHckState extends State<ValidationHck> {
       child: Column(children: <Widget>[
         TextField(
           decoration:  InputDecoration(hintText:  "escribe algo"),
-        ),
-        RaisedButton(
+          onChanged: onChanged, 
+        ),        RaisedButton(
           child: Text("ver alert"),
-          onPressed: this.showMessage //calling method alert
+          onPressed: (){
+            //pased by value
+            this.showMessage( this.valueTextFiel );
+          }
           )
       ],),      
      ),
