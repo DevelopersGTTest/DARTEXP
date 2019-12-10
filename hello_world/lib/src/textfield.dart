@@ -7,11 +7,13 @@ class MyTextField extends StatefulWidget {
 
 class _MyTextFieldState extends State<MyTextField> {
   String textTying = "";
+  final TextEditingController ctrl = TextEditingController();
 
   //catch value input
   void onSubmitted(String value){
     setState(() {
       textTying = textTying + "\n" + value;
+      this.ctrl.text = ""; //clean value input
     });
   }
   
@@ -26,6 +28,7 @@ class _MyTextFieldState extends State<MyTextField> {
          TextField(
            decoration: InputDecoration(hintText: "que estas pensando" ),
            onSubmitted: this.onSubmitted,
+           controller:  this.ctrl,
          ),
          Text(this.textTying)
        ],),
