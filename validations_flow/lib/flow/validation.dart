@@ -6,6 +6,18 @@ class ValidationHck extends StatefulWidget {
  }
 
 class _ValidationHckState extends State<ValidationHck> {
+
+  void showMessage(){
+    AlertDialog alertDialog = AlertDialog(
+      content:  Text("alert demo")
+    );
+    showDialog( context: context, builder: (BuildContext context) {
+     return alertDialog; 
+    });
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
    return Scaffold(
@@ -19,7 +31,7 @@ class _ValidationHckState extends State<ValidationHck> {
         ),
         RaisedButton(
           child: Text("ver alert"),
-          onPressed: (){},
+          onPressed: this.showMessage //calling method alert
           )
       ],),      
      ),
