@@ -14,7 +14,12 @@ class _MyTextFieldState extends State<MyTextField> {
      ),
      body: Container(
        child: Column(children: <Widget>[
-         TextField()
+         TextField(
+           decoration: InputDecoration(hintText: "que estas pensando" ),
+           onSubmitted: (String value){
+             print("el valir es ::  $value ");
+           },
+         )
        ],),
      ),
    );
