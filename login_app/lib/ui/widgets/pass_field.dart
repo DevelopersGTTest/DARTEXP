@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:login_app/blocs/bloc.dart';
 
 class PassField extends StatelessWidget {
+  Bloc ctxLogin;
+  
+  //contructors
+  PassField(Bloc bloc ) : this.ctxLogin = bloc;
+  
 @override
 Widget build(BuildContext context) {
   return StreamBuilder(
-    stream :  bloc.passwordStream ,
+    stream : ctxLogin.passwordStream ,
     builder: ( context, snapshot ){
       return TextField(
         decoration:  InputDecoration(
@@ -13,7 +18,7 @@ Widget build(BuildContext context) {
           labelText: "Password",
           errorText: snapshot.error
         ),
-        onChanged:  (value) => bloc.passwordValue,
+        onChanged:  (value) => ctxLogin.passwordValue,
       );
     },  
   );
