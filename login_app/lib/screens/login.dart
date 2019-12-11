@@ -8,7 +8,7 @@ class _AuthState extends State<Auth> {
   @override
   Widget build(BuildContext context) {
    return new Container(
-  
+     //here wodgets
    );
   }
 }
