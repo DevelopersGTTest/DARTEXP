@@ -20,10 +20,14 @@ class ButtonWgt extends StatelessWidget {
       child: Material(
         color: this._color,
         borderRadius: BorderRadius.circular(30.0),
-        child: FlatButton(
-          child: Text(this._nameButton),
-          onPressed: this._onPressed,
-        ),
+        elevation: 5.0,
+        child: SizedBox(
+          height: 43.0,
+          child: FlatButton(
+            child: Text(this._nameButton),
+            onPressed: this._onPressed,
+          ),
+        ),  
       ), 
     );
   }

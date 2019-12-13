@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:msg_firebase/ui/widgets/button_widget.dart';
+import 'package:msg_firebase/ui/widgets/icon_widget.dart';
 
 class Welcome extends StatefulWidget {
+  static const String routeName = "";
   @override
   _WelcomeState createState() => new _WelcomeState();
 }
@@ -9,35 +11,30 @@ class Welcome extends StatefulWidget {
 class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment:  CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-            Image.asset('images/icons8.png'),
-            Text(
-              " Flutter-APP",
-              style: TextStyle(
-                fontSize: 45.0,
-                fontWeight: FontWeight.w700
-              ),
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 25.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            IconWgt(),
+            ButtonWgt(
+              Colors.lightBlueAccent,
+              "Login",
+              (){
+                Navigator.pushNamed(context, "/login");
+              }
+            ),
+            ButtonWgt(
+              Colors.blueAccent,
+              "Register",
+              (){
+                //
+              }
             )
-            ],
-          ),
-          ButtonWgt(
-            Colors.lightBlueAccent,
-            "Login",
-            (){}
-          ),
-          ButtonWgt(
-            Colors.blueAccent,
-            "Register",
-            (){}
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
