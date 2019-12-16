@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:msg_firebase/ui/screens/login_screen.dart';
 import 'package:msg_firebase/ui/screens/welcome_screen.dart';
+import 'package:msg_firebase/ui/screens/register_screen.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -13,7 +14,8 @@ void main() {
     initialRoute: Welcome.routeName,
     routes: <String, WidgetBuilder>{
       Login.routeName : (BuildContext context ) => Login(),
-      Welcome.routeName : (BuildContext context) => Welcome()
+      Welcome.routeName : (BuildContext context) => Welcome(),
+      Register.routeName : (BuildContext context) => Register()
     },
   ));
 }

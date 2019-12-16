@@ -1,37 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:msg_firebase/ui/widgets/button_widget.dart';
 import 'package:msg_firebase/ui/widgets/icon_widget.dart';
+import 'package:msg_firebase/ui/widgets/text_widget.dart';
 
-class Welcome extends StatefulWidget {
-  static const String routeName = "";
+class Register extends StatefulWidget {
+  static const String routeName = "/register";
   @override
-  _WelcomeState createState() => new _WelcomeState();
-}
-
-class _WelcomeState extends State<Welcome> {
+  _RegisterState createState() => new _RegisterState();
+ }
+class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 25.0),
+        padding: EdgeInsets.symmetric(horizontal:  24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             IconWgt(),
-            ButtonWgt(
-              Colors.lightBlueAccent,
-              "Login",
-              (){
-                Navigator.pushNamed(context, "/login");
-              }
-            ),
+            SizedBox( height: 48.0),
+            TextWgt("Write email"),
+            SizedBox( height: 8.0),
+            TextWgt("Write password"),
+            SizedBox( height: 23.0),
             ButtonWgt(
               Colors.blueAccent,
               "Register",
-              (){
-                 Navigator.pushNamed(context, "/register");
-              }
+              (){}
             )
           ],
         ),
