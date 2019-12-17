@@ -24,12 +24,18 @@ class _RegisterState extends State<Register> {
             SizedBox( height: 48.0),
             TextWgt(
               "Write email",
-              (value) { this._email = value;}
+              (value) { 
+                this._email = value;
+                print("email register ::: $value");
+              }
             ),
             SizedBox( height: 8.0),
             TextWgt(
               "Write password",
-              (value) { this._pass = value; }
+              (value) { 
+                this._pass = value;
+                print("password register ::: $value");
+              }
             ),
             SizedBox( height: 23.0),
             ButtonWgt(
