@@ -20,9 +20,19 @@ class _LoginState extends State<Login> {
           children: <Widget>[
             IconWgt(),
             SizedBox( height: 48.0),
-            TextWgt("Write email"),
+            TextWgt(
+              "Write email",
+              (value) {
+                print("el email es $value");
+              }
+            ),
             SizedBox( height: 8.0),
-            TextWgt("Write password"),
+            TextWgt(
+              "Write password",
+              (value) {
+                print("el pass es $value");
+              }
+            ),
             SizedBox( height: 23.0),
             ButtonWgt(
               Colors.blueAccent,
