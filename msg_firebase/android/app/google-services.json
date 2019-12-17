@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "226712168441",
-    "firebase_url": "https://flutter-20fdd.firebaseio.com",
-    "project_id": "flutter-20fdd",
-    "storage_bucket": "flutter-20fdd.appspot.com"
+    "project_number": "982404155344",
+    "firebase_url": "https://chatapp-aed61.firebaseio.com",
+    "project_id": "chatapp-aed61",
+    "storage_bucket": "chatapp-aed61.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:226712168441:android:dcde70f98b64d70fd9ff28",
+        "mobilesdk_app_id": "1:982404155344:android:d3c202ea6606da63341bd5",
         "android_client_info": {
-          "package_name": "com.example.msg_firebase"
+          "package_name": "com.hackobo.msg_firebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "226712168441-bi5cdanvus7acd6pf8impb1ts9296hu2.apps.googleusercontent.com",
+          "client_id": "982404155344-5jduhha081b6ggp0k4jb28mup8kvvipm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBOe4lMgOiLNPZMhu-l89R_ub46dZPjmUQ"
+          "current_key": "AIzaSyD7n7JqNp5INRIc4UI-STxey7xUoiChQD0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "226712168441-bi5cdanvus7acd6pf8impb1ts9296hu2.apps.googleusercontent.com",
+              "client_id": "982404155344-5jduhha081b6ggp0k4jb28mup8kvvipm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
