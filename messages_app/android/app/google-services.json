@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "530503146976",
+    "firebase_url": "https://functionsapp-c91fb.firebaseio.com",
+    "project_id": "functionsapp-c91fb",
+    "storage_bucket": "functionsapp-c91fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530503146976:android:8083da7c73037457521f85",
+        "android_client_info": {
+          "package_name": "com.hckbb.messages_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530503146976-veqfjrl3c0sdi1ovvdlql6ndgnkbsge2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB50HdRwaN0785ZQHpL83kPIqR7G0kcBlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530503146976-veqfjrl3c0sdi1ovvdlql6ndgnkbsge2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
