@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 class TextWgt extends StatelessWidget {
   //properties
   String namaPlaceholder = "";
+  ValueChanged<String> onChanged;
 
-  TextWgt(String nP) 
-  : this.namaPlaceholder = nP;
+ 
+  TextWgt(String nP, ValueChanged<String> eventCallback ) 
+  : this.namaPlaceholder = nP,
+    this.onChanged = eventCallback;
 
  @override
  Widget build(BuildContext context) {
@@ -25,6 +28,7 @@ class TextWgt extends StatelessWidget {
         borderSide: BorderSide(color: Colors.blueAccent, width: 2.0) 
       ),
     ),
+    onChanged: this.onChanged,
  );
  }
 }

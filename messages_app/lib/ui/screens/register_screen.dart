@@ -9,6 +9,8 @@ class Register extends StatefulWidget {
   _RegisterState createState() => new _RegisterState();
  }
 class _RegisterState extends State<Register> {
+  String _email = "";
+  String _pass = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,9 +22,15 @@ class _RegisterState extends State<Register> {
           children: <Widget>[
             IconWgt(),
             SizedBox( height: 48.0),
-            TextWgt("Write email"),
+            TextWgt(
+              "Write email",
+              (value) { this._email = value;}
+            ),
             SizedBox( height: 8.0),
-            TextWgt("Write password"),
+            TextWgt(
+              "Write password",
+              (value) { this._pass = value; }
+            ),
             SizedBox( height: 23.0),
             ButtonWgt(
               Colors.blueAccent,
