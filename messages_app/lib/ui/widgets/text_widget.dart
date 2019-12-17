@@ -4,11 +4,13 @@ class TextWgt extends StatelessWidget {
   //properties
   String namaPlaceholder = "";
   ValueChanged<String> onChanged;
+  bool typeTextFile;
 
  
-  TextWgt(String nP, ValueChanged<String> eventCallback ) 
-  : this.namaPlaceholder = nP,
-    this.onChanged = eventCallback;
+  TextWgt(String nP, ValueChanged<String> eventCallback, bool typeText ) 
+  : this.namaPlaceholder = nP
+  , this.onChanged = eventCallback
+  , this.typeTextFile = typeText;
 
  @override
  Widget build(BuildContext context) {
@@ -29,6 +31,8 @@ class TextWgt extends StatelessWidget {
       ),
     ),
     onChanged: this.onChanged,
+    textAlign:  TextAlign.center,
+    obscureText: this.typeTextFile,
  );
  }
 }

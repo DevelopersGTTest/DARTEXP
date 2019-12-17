@@ -27,7 +27,8 @@ class _RegisterState extends State<Register> {
               (value) { 
                 this._email = value;
                 print("email register ::: $value");
-              }
+              },
+              false
             ),
             SizedBox( height: 8.0),
             TextWgt(
@@ -35,7 +36,8 @@ class _RegisterState extends State<Register> {
               (value) { 
                 this._pass = value;
                 print("password register ::: $value");
-              }
+              },
+              true
             ),
             SizedBox( height: 23.0),
             ButtonWgt(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:messages_app/ui/screens/login_screen.dart';
 import 'package:messages_app/ui/screens/welcome_screen.dart';
 import 'package:messages_app/ui/screens/register_screen.dart';
+import 'package:messages_app/ui/screens/dashboard_screen.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -15,7 +16,8 @@ void main() {
     routes: <String, WidgetBuilder>{
       Login.routeName : (BuildContext context ) => Login(),
       Welcome.routeName : (BuildContext context) => Welcome(),
-      Register.routeName : (BuildContext context) => Register()
+      Register.routeName : (BuildContext context) => Register(),
+      Dashboard.routeName : ( BuildContext context) => Dashboard()
     },
   ));
 }

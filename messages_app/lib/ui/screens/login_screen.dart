@@ -24,14 +24,16 @@ class _LoginState extends State<Login> {
               "Write email",
               (value) {
                 print("el email es $value");
-              }
+              },
+              false
             ),
             SizedBox( height: 8.0),
             TextWgt(
               "Write password",
               (value) {
                 print("el pass es $value");
-              }
+              },
+              true
             ),
             SizedBox( height: 23.0),
             ButtonWgt(
