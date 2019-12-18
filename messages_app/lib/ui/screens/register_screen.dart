@@ -46,9 +46,9 @@ class _RegisterState extends State<Register> {
             ButtonWgt(
               Colors.blueAccent,
               "Register",
-              (){
+              () async {
                 try {
-                  var newUser = auth
+                  var newUser =  await auth
                   .createUserWithEmailAndPassword( 
                     email: this._email, password: this._pass
                   );
