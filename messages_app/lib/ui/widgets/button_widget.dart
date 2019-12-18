@@ -24,7 +24,7 @@ class ButtonWgt extends StatelessWidget {
         child: SizedBox(
           height: 43.0,
           child: FlatButton(
-            child: Text(this._nameButton),
+            child: Text(this._nameButton, style: TextStyle(color: Colors.white )),
             onPressed: this._onPressed,
           ),
         ),  
