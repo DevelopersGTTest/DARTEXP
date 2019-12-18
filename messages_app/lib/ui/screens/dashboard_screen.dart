@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:messages_app/services/auth_service.dart';
 
 class Dashboard extends StatefulWidget {
   static const String routeName = "/dashboard";
@@ -7,7 +8,6 @@ class Dashboard extends StatefulWidget {
   _DashboardState createState() => new _DashboardState();
  }
 class _DashboardState extends State<Dashboard> {
-  final auth = FirebaseAuth.instance;
   FirebaseUser loogerUser;
 
   //is onInit in Flutter
@@ -15,11 +15,11 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    this.getCurrentUser();
+    this.currentUser();
   }
 
   //temp method
-  void getCurrentUser() async {
+  void currentUser() async {
     try {
       var user = await auth.currentUser();
       if( user != null ){

@@ -26,5 +26,19 @@ class Auth {
     }
   }
 
+  //authenticate user
+  Future<FirebaseUser> loginUser(
+  { String emailParam = "", String passwordParam = "" }) async {
+    try {
+      return await this._auth
+        .signInWithEmailAndPassword( 
+          email: emailParam, password: passwordParam 
+        );
+    } catch (e) {
+      print("[error login user] ::: $e ");
+    }
+    return null;
+  }
+
 
 }
