@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:messages_app/ui/widgets/button_widget.dart';
 import 'package:messages_app/ui/widgets/icon_widget.dart';
 import 'package:messages_app/ui/widgets/text_widget.dart';
+import 'package:messages_app/services/auth_service.dart';
 
 class Login extends StatefulWidget {
   static const String routeName = "/login";
@@ -9,6 +10,10 @@ class Login extends StatefulWidget {
   _LoginState createState() => new _LoginState();
  }
 class _LoginState extends State<Login> {
+  //properties 
+  String _email = "";
+  String _password = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +28,7 @@ class _LoginState extends State<Login> {
             TextWgt(
               "Write email",
               (value) {
+                this._email = value;
                 print("el email es $value");
               },
               false
@@ -31,6 +37,7 @@ class _LoginState extends State<Login> {
             TextWgt(
               "Write password",
               (value) {
+                this._password = value;
                 print("el pass es $value");
               },
               true
@@ -39,7 +46,14 @@ class _LoginState extends State<Login> {
             ButtonWgt(
               Colors.blueAccent,
               "Log In",
-              (){}
+              () async {
+                var loginUser = await Auth().loginUser( 
+                  emailParam: this._email, passwordParam:  this._password
+                );
+                if( loginUser != null ){
+                  Navigator.pushNamed(context, "/dashboard");
+                }
+              }
             )
           ],
         ),
