@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:messages_app/ui/widgets/button_widget.dart';
 import 'package:messages_app/ui/widgets/icon_widget.dart';
 import 'package:messages_app/ui/widgets/text_widget.dart';
-//firebase package
-import 'package:firebase_auth/firebase_auth.dart';
-    
+import 'package:messages_app/services/auth_service.dart';    
+
 class Register extends StatefulWidget {
   static const String routeName = "/register";
   @override
   _RegisterState createState() => new _RegisterState();
- }
+}
+
 class _RegisterState extends State<Register> {
-  final auth = FirebaseAuth.instance;
+ 
   String _email = "";
   String _pass = "";
   @override
@@ -47,17 +47,12 @@ class _RegisterState extends State<Register> {
               Colors.blueAccent,
               "Register",
               () async {
-                try {
-                  var newUser =  await auth
-                  .createUserWithEmailAndPassword( 
-                    email: this._email, password: this._pass
-                  );
-                  if( newUser != null ){
-                    Navigator.pushNamed(context, "/dashboard");
-                  }
-                } catch (e) {
-                  print("[register error] ::: $e ");
-                } 
+                var newUser = await Auth().createUser(
+                  emailParam: this._email, passwordParam: this._pass
+                );
+                if( newUser != null ){
+                  Navigator.pushNamed(context, "/dashboard");
+                }
               }
             )
           ],
