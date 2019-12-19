@@ -20,13 +20,9 @@ class _DashboardState extends State<Dashboard> {
 
   //temp method
   void currentUser() async {
-    try {
-      var user = await auth.currentUser();
-      if( user != null ){
-        this.loogerUser = user;
-        print("[Current user id] ::: $user ");
-      }
-    } catch (e) {
+    var user = await Auth().getCurrentUser();
+    if( user != null ){
+      this.loogerUser = user;
     }
   }
 
@@ -34,7 +30,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("hck msgs"),
+        title: Text("hola usuario : "),
       ) ,
     );
   }

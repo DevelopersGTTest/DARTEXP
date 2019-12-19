@@ -33,7 +33,7 @@ class Auth {
       return await this._auth
         .signInWithEmailAndPassword( 
           email: emailParam, password: passwordParam 
-        );
+        );   
     } catch (e) {
       print("[error login user] ::: $e ");
     }
