@@ -40,5 +40,13 @@ class Auth {
     return null;
   }
 
+  Future<void> logOut() async{
+    try {
+      return await this._auth.signOut();
+    } catch (e) {
+      print("error logged ::: $e");
+    }
+  }
+
 
 }

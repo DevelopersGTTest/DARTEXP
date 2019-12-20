@@ -30,7 +30,16 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("hola usuario : "),
+        title: Text("Bienvenido"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.power_settings_new),
+            onPressed: (){
+              Auth().logOut();
+              Navigator.pop(context);
+            },
+          )
+        ],
       ) ,
     );
   }
