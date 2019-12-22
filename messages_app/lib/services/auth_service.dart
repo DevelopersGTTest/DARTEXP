@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:messages_app/ui/widgets/alert_widget.dart';
 
 class Auth {
   final _auth = FirebaseAuth.instance;
@@ -13,6 +14,7 @@ class Auth {
         );
     } catch (e) {
       print("[Error in register user] ::: $e ");
+      AlertWgt(data: e,);
     }
     return null;
   }
@@ -23,6 +25,7 @@ class Auth {
       return await this._auth.currentUser();
     } catch (e) {
       print("[error in current user] ::: $e ");
+      AlertWgt(data: e,);
     }
   }
 
@@ -36,6 +39,7 @@ class Auth {
         );   
     } catch (e) {
       print("[error login user] ::: $e ");
+      AlertWgt(data: e);
     }
     return null;
   }
@@ -45,6 +49,7 @@ class Auth {
       return await this._auth.signOut();
     } catch (e) {
       print("error logged ::: $e");
+      AlertWgt(data: e,);
     }
   }
 

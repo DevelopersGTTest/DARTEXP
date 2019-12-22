@@ -5,7 +5,7 @@ class AlertWgt extends StatelessWidget {
   String data = "";
   //String typeAlert = ""; not use
 
-  AlertWgt({ data :  })
+  AlertWgt({ this.data });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class AlertWgt extends StatelessWidget {
           color: Colors.redAccent
         )
       ),
-      content: , //is use exceptions
+      content: Text(this.data), //is use exceptions
     );
  }
 }
