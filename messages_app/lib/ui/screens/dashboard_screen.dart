@@ -8,7 +8,13 @@ class Dashboard extends StatefulWidget {
   _DashboardState createState() => new _DashboardState();
  }
 class _DashboardState extends State<Dashboard> {
+  //properties
   FirebaseUser loogerUser;
+  InputDecoration _messageTextFieldDecoration = InputDecoration(
+    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+    hintText: 'Write a message',
+    border: InputBorder.none 
+  );
 
   //is onInit in Flutter
   @override
@@ -40,7 +46,22 @@ class _DashboardState extends State<Dashboard> {
             },
           )
         ],
-      ) ,
+      ),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: TextField(
+                decoration: this._messageTextFieldDecoration,
+              ),
+            ),
+            FlatButton(
+              child: Text("Send"),
+              onPressed: (){},
+            )
+          ],
+        ),
+      ),
     );
   }
 }
