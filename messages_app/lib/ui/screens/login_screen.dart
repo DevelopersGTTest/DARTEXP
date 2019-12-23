@@ -4,6 +4,7 @@ import 'package:messages_app/ui/widgets/icon_widget.dart';
 import 'package:messages_app/ui/widgets/text_widget.dart';
 import 'package:messages_app/services/auth_service.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:messages_app/ui/widgets/alert_widget.dart';
 
 class Login extends StatefulWidget {
   static const String routeName = "/login";
@@ -15,6 +16,7 @@ class _LoginState extends State<Login> {
   String _email = "";
   String _password = "";
   bool showSpinner = false;
+  String _errorAlert = "";
 
   //controller state
   void setSpinnerStatus(bool  status){
@@ -59,19 +61,35 @@ class _LoginState extends State<Login> {
               "Log In",
               () async {
                 this.setSpinnerStatus(true);
-                var loginUser = await Auth().loginUser( 
+                var auth = await Auth().loginUser( 
                   emailParam: this._email, passwordParam:  this._password
                 );
-                if( loginUser != null ){
+                if( auth.success ){
                   Navigator.pushNamed(context, "/dashboard");
+                }else{
+                  setState(() {
+                    this._errorAlert = auth.messageError;
+                  });
                 }
                 this.setSpinnerStatus(false);
               }
-            )
+            ),
+            _showErrorMessage()
           ],
         ),
         ),
       ),
     );
+  }
+
+  //invoke type widget input
+  Widget _showErrorMessage(){
+    if( this._errorAlert.length > 0 && this._errorAlert != null ){
+      return AlertWgt(data:  this._errorAlert );
+    }else{
+      return Container(
+        height: 0.0,
+      );
+    }
   }
 }
