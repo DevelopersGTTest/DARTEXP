@@ -74,6 +74,9 @@ class Auth {
       case 'ERROR_NETWORK_REQUEST_FAILED':
         authRequest.messageError  = "Error de red";
       break;
+      case 'ERROR_INVALID_EMAIL':
+        authRequest.messageError  = "Usuario no valido";
+      break;
       case 'ERROR_EMAIL_ALREADY_IN_USER':
         authRequest.messageError = "Usuario ya registrado";
       break;

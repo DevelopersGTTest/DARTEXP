@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:messages_app/ui/widgets/alert_widget.dart';
 import 'package:messages_app/ui/widgets/button_widget.dart';
 import 'package:messages_app/ui/widgets/icon_widget.dart';
 import 'package:messages_app/ui/widgets/text_widget.dart';
@@ -11,9 +12,11 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
- 
+  //properties
   String _email = "";
   String _pass = "";
+   String _errorAlert = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,14 +53,30 @@ class _RegisterState extends State<Register> {
                 var newUser = await Auth().createUser(
                   emailParam: this._email, passwordParam: this._pass
                 );
-                if( newUser != null ){
+                if( newUser.success ){
                   Navigator.pushNamed(context, "/dashboard");
+                }else{
+                  setState(() {
+                    this._errorAlert = newUser.messageError;  
+                  });
                 }
               }
-            )
+            ),
+            _showErrorMessage()
           ],
         ),
       ),
     );
+  }
+
+    //invoke type widget input
+  Widget _showErrorMessage(){
+    if( this._errorAlert.length > 0 && this._errorAlert != null ){
+      return AlertWgt(data:  this._errorAlert );
+    }else{
+      return Container(
+        height: 0.0,
+      );
+    }
   }
 }
