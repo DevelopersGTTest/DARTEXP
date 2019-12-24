@@ -54,10 +54,11 @@ class _DashboardState extends State<Dashboard> {
 
   //getting data
   void getDataFirebase() async {
-    final messages = await MessageService().getMessages();
-    for( var msg in  messages.documents ){
-      print(msg.data);
-    } 
+    await for( var snapshot in MessageService().getMessagesStream()){
+      for(var msg in snapshot.documents){
+        print(msg.data);
+      }
+    }
   }
 
   @override

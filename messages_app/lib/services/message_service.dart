@@ -10,10 +10,18 @@ class MessageService{
       .add(objValues);
   }
 
+  //without [stream]
+  //[ not used ]
   Future<QuerySnapshot> getMessages() async {
     return await this._firestore
       .collection("messages")
       .getDocuments();
+  }
+
+  //stream 
+  Stream<QuerySnapshot> getMessagesStream(){
+    return this._firestore
+      .collection("messages").snapshots();
   }
 
 }
