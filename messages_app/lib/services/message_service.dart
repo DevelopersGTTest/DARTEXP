@@ -10,4 +10,10 @@ class MessageService{
       .add(objValues);
   }
 
+  Future<QuerySnapshot> getMessages() async {
+    return await this._firestore
+      .collection("messages")
+      .getDocuments();
+  }
+
 }

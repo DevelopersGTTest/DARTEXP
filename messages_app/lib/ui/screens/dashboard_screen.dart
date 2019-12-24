@@ -40,6 +40,7 @@ class _DashboardState extends State<Dashboard> {
     // TODO: implement initState
     super.initState();
     this.currentUser();
+    this.getDataFirebase();
   }
 
   //temp method
@@ -49,6 +50,14 @@ class _DashboardState extends State<Dashboard> {
       this.loogerUser = user;
       this.emailShowInHeaderApp = this.loogerUser.email;
     }
+  }
+
+  //getting data
+  void getDataFirebase() async {
+    final messages = await MessageService().getMessages();
+    for( var msg in  messages.documents ){
+      print(msg.data);
+    } 
   }
 
   @override
