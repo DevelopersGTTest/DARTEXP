@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:messages_app/services/auth_service.dart';
+import 'package:messages_app/services/message_service.dart';
 
 class Dashboard extends StatefulWidget {
   static const String routeName = "/dashboard";
@@ -87,10 +88,13 @@ class _DashboardState extends State<Dashboard> {
                 style: this._sendMessage
               ),
               onPressed: (){
-                this._firestore.collection("messages").add({
-                  'ctxValue' : this._messageController.text,
-                  'owner' : this.loogerUser.email
-                });
+                MessageService().saveMessages(
+                  collectionName: "messages",
+                  objValues: {
+                    'ctxValue' : this._messageController.text,
+                    'owner' : this.loogerUser.email
+                  } 
+                );
               },
             )
           ],
