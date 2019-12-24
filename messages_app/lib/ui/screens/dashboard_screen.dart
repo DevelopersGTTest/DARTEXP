@@ -79,6 +79,12 @@ class _DashboardState extends State<Dashboard> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
+            StreamBuilder(
+              stream: MessageService().getMessagesStream(),
+              builder: ( context, snapshot ){
+                
+              }
+            ),
             Container(
               decoration: this._messageBoxDecoration,
               child: Row(
