@@ -82,7 +82,20 @@ class _DashboardState extends State<Dashboard> {
             StreamBuilder(
               stream: MessageService().getMessagesStream(),
               builder: ( context, snapshot ){
-                
+                if( snapshot.hasData ){
+                  var messages = snapshot.data.documents;
+                  List<Text> msgWiggets = [];
+                  for( var message in messages ){
+                    final vContent = message.data["ctxValue"];
+                    final vOwner = message.data["owner"];
+                    msgWiggets.add( Text('$vContent by $vOwner '));
+                  }
+                  return Flexible(
+                    child: ListView(
+                      children: msgWiggets,
+                    ),
+                  );
+                }
               }
             ),
             Container(
