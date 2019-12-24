@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:messages_app/services/auth_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Dashboard extends StatefulWidget {
   static const String routeName = "/dashboard";
@@ -11,7 +10,6 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   //properties
   FirebaseUser loogerUser;
-  final _firestore = Firestore.instance;
   TextEditingController _messageController = new TextEditingController();
   String emailShowInHeaderApp  = "";
 
