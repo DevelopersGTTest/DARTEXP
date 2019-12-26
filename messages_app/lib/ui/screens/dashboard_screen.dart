@@ -89,11 +89,12 @@ class _DashboardState extends State<Dashboard> {
                   for( var message in messages ){
                     final vContent = message.data["ctxValue"];
                     final vOwner = message.data["owner"];
-                    messagesWgt
-                      .add( new MessageWgt( 
+                    messagesWgt.add( 
+                      new MessageWgt( 
                         owner: vOwner, 
                         ctxMessage: vContent
-                      ));
+                      )
+                    );
                   }
                   return Flexible(
                     child: ListView(

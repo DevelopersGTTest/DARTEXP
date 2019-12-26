@@ -9,6 +9,7 @@ class MessageWgt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           Text(
             this.owner, 
@@ -17,12 +18,16 @@ class MessageWgt extends StatelessWidget {
               color: Colors.black54
             ) 
           ),
-          Text( 
-            this.ctxMessage, 
-            style: TextStyle( 
-              fontSize: 16.0, 
-              color: Colors.black54 
-            ), 
+          Material(
+            borderRadius: BorderRadius.circular(30.0),
+            color: Colors.lightBlueAccent,
+            child: Text(
+              this.ctxMessage, 
+              style: TextStyle( 
+                fontSize: 16.0, 
+                color: Colors.black54 
+              ), 
+            ) 
           )
         ],
       ),
