@@ -21,13 +21,19 @@ class MessageWgt extends StatelessWidget {
           Material(
             borderRadius: BorderRadius.circular(30.0),
             color: Colors.lightBlueAccent,
-            child: Text(
-              this.ctxMessage, 
-              style: TextStyle( 
-                fontSize: 16.0, 
-                color: Colors.black54 
-              ), 
-            ) 
+            child: Padding(
+              padding: EdgeInsets.symmetric( 
+                vertical: 10.0,
+                horizontal: 20.0  
+              ),
+              child: Text(
+                this.ctxMessage, 
+                style: TextStyle( 
+                  fontSize: 16.0, 
+                  color: Colors.black54 
+                ), 
+              ) 
+            ),
           )
         ],
       ),
