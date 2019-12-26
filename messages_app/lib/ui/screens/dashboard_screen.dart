@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:messages_app/services/auth_service.dart';
 import 'package:messages_app/services/message_service.dart';
+import 'package:messages_app/ui/widgets/message_widget.dart';
 
 class Dashboard extends StatefulWidget {
   static const String routeName = "/dashboard";
@@ -84,15 +85,19 @@ class _DashboardState extends State<Dashboard> {
               builder: ( context, snapshot ){
                 if( snapshot.hasData ){
                   var messages = snapshot.data.documents;
-                  List<Text> msgWiggets = [];
+                  List<MessageWgt> messagesWgt = [];
                   for( var message in messages ){
                     final vContent = message.data["ctxValue"];
                     final vOwner = message.data["owner"];
-                    msgWiggets.add( Text('$vContent by $vOwner '));
+                    messagesWgt
+                      .add( new MessageWgt( 
+                        owner: vOwner, 
+                        ctxMessage: vContent
+                      ));
                   }
                   return Flexible(
                     child: ListView(
-                      children: msgWiggets,
+                      children: messagesWgt,
                     ),
                   );
                 }
