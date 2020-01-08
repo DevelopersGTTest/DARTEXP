@@ -21,13 +21,22 @@ class DataSearch extends SearchDelegate<String>{
   @override
   List<Widget> buildActions(BuildContext context) {
     // TODO: implement buildActions
-    return null;
+    return [ IconButton( 
+      icon: Icon( Icons.clear), onPressed: (){},
+      ) 
+    ];
   }
 
   @override
   Widget buildLeading(BuildContext context) {
     // TODO: implement buildLeading
-    return null;
+    return IconButton(
+      icon: AnimatedIcon(
+        icon: AnimatedIcons.menu_arrow,
+        progress: transitionAnimation,
+      ),
+      onPressed: (){},
+    );
   }
 
   @override
@@ -38,7 +47,7 @@ class DataSearch extends SearchDelegate<String>{
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
+    // si encuentro algun resultado de la busqueda
     return null;
   }
 }
