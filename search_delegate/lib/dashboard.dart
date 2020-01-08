@@ -9,10 +9,13 @@ class Dashboard extends StatelessWidget {
       actions: <Widget>[
         IconButton( 
           icon: Icon( Icons.search ),
-          onPressed: (){ },
+          onPressed: (){ 
+            showSearch( context: context, delegate: DataSearch());
+          },
         )
       ],
     ),
+    drawer: Drawer(),
  );
  }
 }
@@ -45,7 +48,9 @@ class DataSearch extends SearchDelegate<String>{
   List<Widget> buildActions(BuildContext context) {
     // TODO: implement buildActions
     return [ IconButton( 
-      icon: Icon( Icons.clear), onPressed: (){},
+      icon: Icon( Icons.clear), onPressed: (){
+        query = "";   
+      },
       ) 
     ];
   }
@@ -58,7 +63,9 @@ class DataSearch extends SearchDelegate<String>{
         icon: AnimatedIcons.menu_arrow,
         progress: transitionAnimation,
       ),
-      onPressed: (){},
+      onPressed: (){
+        close(context, null);
+      },
     );
   }
 
@@ -71,7 +78,10 @@ class DataSearch extends SearchDelegate<String>{
   @override
   Widget buildSuggestions(BuildContext context) {
     // TODO: implement buildSuggestions
-    final suggestionsList = query.isEmpty ? recentCities : cities;
+    final suggestionsList = query.isEmpty 
+      ? recentCities 
+      : cities.where((p)=> p.startsWith(query)).toList();
+    
     return ListView.builder(
       itemBuilder: (context, index)=> ListTile(
         leading: Icon(Icons.location_city),
