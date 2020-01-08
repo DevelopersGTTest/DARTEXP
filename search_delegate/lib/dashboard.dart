@@ -18,6 +18,29 @@ class Dashboard extends StatelessWidget {
 }
 
 class DataSearch extends SearchDelegate<String>{
+
+  //dummy DATA
+  final cities = [
+    "Ciudad de Guatemala",
+    "Quetzaltenango",
+    "Escuintla",
+    "Puerto Barrios (Izabal)",
+    "Cobán, Alta Verapaz",
+    "Teculután, Zacapa",
+    "Jutiapa",
+    "Poptún (Petén)",
+    "Huehuetenango",
+    "Sacatepéquez",
+    "Chimaltenango"
+  ];
+
+  //dummy last results 
+  final recentCities = [
+    "Ciudad de Guatemala",
+    "Teculután, Zacapa",
+    "Sacatepéquez",
+  ];
+
   @override
   List<Widget> buildActions(BuildContext context) {
     // TODO: implement buildActions
@@ -47,7 +70,14 @@ class DataSearch extends SearchDelegate<String>{
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // si encuentro algun resultado de la busqueda
-    return null;
+    // TODO: implement buildSuggestions
+    final suggestionsList = query.isEmpty ? recentCities : cities;
+    return ListView.builder(
+      itemBuilder: (context, index)=> ListTile(
+        leading: Icon(Icons.location_city),
+        title: Text( suggestionsList[index]),
+      ),
+      itemCount: suggestionsList.length,
+    );
   }
 }
