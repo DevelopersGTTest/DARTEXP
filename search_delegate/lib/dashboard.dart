@@ -23,7 +23,6 @@ class Dashboard extends StatelessWidget {
 class DataSearch extends SearchDelegate<String>{
 
   //dummy DATA
-  //defs
   final cities = [
     "Ciudad de Guatemala",
     "Quetzaltenango",
@@ -82,7 +81,7 @@ class DataSearch extends SearchDelegate<String>{
     final suggestionsList = query.isEmpty 
       ? recentCities 
       : cities.where((p)=> p.startsWith(query)).toList();
-    
+
     return ListView.builder(
       itemBuilder: (context, index)=> ListTile(
         leading: Icon(Icons.location_city),
