@@ -23,6 +23,7 @@ class Dashboard extends StatelessWidget {
 class DataSearch extends SearchDelegate<String>{
 
   //dummy DATA
+  //defs
   final cities = [
     "Ciudad de Guatemala",
     "Quetzaltenango",
