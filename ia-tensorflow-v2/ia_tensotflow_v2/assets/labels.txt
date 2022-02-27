@@ -1,0 +1,3 @@
+0 feliz
+1 serio
+2 emocionado
