@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Whats happen ?'),
+        title: const Text('Cual es tu reacción?'),
       ),
       body: _loading
           ? Container(
@@ -56,14 +56,21 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _imageFileList == null 
-            ? Container() 
+            ? Container(
+              child: Image.asset(
+                'assets/images/select-image.png',
+                width: 240,
+                height: 200,
+                fit: BoxFit.fill
+              )
+            ) 
             : Image.file(File(_imageFileList![0].path)),
             SizedBox(
               height: _maxHeight,
             ),
             _outputs != null
                 ? Text(
-              "${_outputs![0]["label"]}",
+              "${_outputs![0]["label"]}  :  ${(_outputs![0]["confidence"] * 100).toStringAsFixed(0)}%",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20.0,
