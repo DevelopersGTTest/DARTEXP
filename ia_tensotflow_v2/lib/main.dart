@@ -94,6 +94,7 @@ class _MyAppState extends State<MyApp> {
                       ),
                       backgroundColor: Colors.grey,
                       progressColor: Colors.blue,
+					  barRadius: const Radius.circular(16)
                     ),
                   )
                 ],
