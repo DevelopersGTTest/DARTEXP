@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 void main() => runApp(MaterialApp(
   home: MyApp(),
@@ -70,14 +71,34 @@ class _MyAppState extends State<MyApp> {
             ),
             _outputs != null
                 ? Text(
-              "${_outputs![0]["label"]}  :  ${(_outputs![0]["confidence"] * 100).toStringAsFixed(0)}%",
+              "${_outputs![0]["label"]}",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20.0,
                 background: Paint()..color = Colors.white,
               ),
-            )
-                : Container()
+            ): Container(),
+            _outputs != null ? Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:  <Widget> [
+                  Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: LinearPercentIndicator(
+                      width: 355.0,
+                      lineHeight: 15.0,
+                      percent: (_outputs![0]["confidence"]),
+                      center: Text(
+                        "${(_outputs![0]["confidence"] * 100).toStringAsFixed(0)} %",
+                        style: new TextStyle(fontSize: 12.0),
+                      ),
+                      backgroundColor: Colors.grey,
+                      progressColor: Colors.blue,
+                    ),
+                  )
+                ],
+              )
+            ) : Container()
           ],
         ),
       ),
