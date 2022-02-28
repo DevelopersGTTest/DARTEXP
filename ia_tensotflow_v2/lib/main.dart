@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
       body: _loading
           ? Container(
         alignment: Alignment.center,
-        child: CircularProgressIndicator(),
+        child: const CircularProgressIndicator(),
       )
           : Container(
         width: MediaQuery.of(context).size.width,
@@ -83,18 +83,18 @@ class _MyAppState extends State<MyApp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:  <Widget> [
                   Padding(
-                    padding: EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(15.0),
                     child: LinearPercentIndicator(
                       width: 355.0,
                       lineHeight: 15.0,
                       percent: (_outputs![0]["confidence"]),
                       center: Text(
                         "${(_outputs![0]["confidence"] * 100).toStringAsFixed(0)} %",
-                        style: new TextStyle(fontSize: 12.0),
+                        style: const TextStyle(fontSize: 12.0),
                       ),
                       backgroundColor: Colors.grey,
                       progressColor: Colors.blue,
-					  barRadius: const Radius.circular(16)
+                      barRadius: const Radius.circular(16)
                     ),
                   )
                 ],
@@ -105,7 +105,7 @@ class _MyAppState extends State<MyApp> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: pickImage,
-        child: Icon(Icons.image),
+        child: const Icon(Icons.image),
       ),
     );
   }
